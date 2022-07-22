@@ -59,6 +59,7 @@ additem.style.color="green";
 additem.style.fontWeight="900";
 */
 
+
 // GET ELEMENTS BY CLASS NAME //
 
 var items=document.getElementsByClassName("list-group-item");
@@ -81,6 +82,28 @@ items[2].style.backgroundColor="green";
 for(let i=0;i<items.length;i++){
     items[i].style.fontWeight="bold";
 }
+
+
+// GETELEMENTSBYTAGNAME //
+
+var li=document.getElementsByTagName('li');
+console.log(li);     // this gives us a html collection of items
+console.log(li[0]);
+
+li[1].innerHTML="hello";
+li[1].style.backgroundColor="yellow";
+li[1].style.fontWeight="bold";
+
+// generates error when trying to make all elemts background grey
+// li.style.backgroundColor="#f4f4f4";
+
+// which means we need to mafe a for loop and apply grey background to every element
+for(let i=0;i<li.length;i++){
+    li[i].style.backgroundColor="#f4f4f4";
+}
+
+// we added 1 more li element item 5, and because it was getelementsbytag all above property is imbeded in the newly formed tag li also
+// if it was get element by class name the new li element will not have reflected above changes.
 
 
 
