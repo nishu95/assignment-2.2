@@ -25,8 +25,8 @@ console.log(document.links);
 // GETELEMENTBYID //
 
 // console.log(document.getElementById('header-title'));
-var headerTitle=document.getElementById('header-title');
-var header=document.getElementById('main-header');
+// var headerTitle=document.getElementById('header-title');
+// var header=document.getElementById('main-header');
 // console.log(headerTitle);
 // headerTitle.textContent='hello';
 // headerTitle.innerText='boy';
@@ -46,6 +46,7 @@ var header=document.getElementById('main-header');
 
 //headerTitle.style.color='green';
 
+/*
 // make add item bold and change it's color to green
 var div=document.getElementById('main');
 console.log(div);
@@ -56,8 +57,30 @@ var additem=document.querySelector(".title");
 console.log(additem);
 additem.style.color="green";
 additem.style.fontWeight="900";
+*/
 
 // GET ELEMENTS BY CLASS NAME //
+
+var items=document.getElementsByClassName("list-group-item");
+console.log(items);     // this gives us a html collection of items
+console.log(items[0]);
+
+items[1].textContent="hello";
+items[1].style.backgroundColor="yellow";
+items[1].style.fontWeight="bold";
+
+// generates error when trying to make all elemts background grey
+// items.style.backgroundColor="#f4f4f4";
+
+// which means we need to mafe a for loop and apply grey background to every element
+for(let i=0;i<items.length;i++){
+    items[i].style.backgroundColor="#f4f4f4";
+}
+
+items[2].style.backgroundColor="green";
+for(let i=0;i<items.length;i++){
+    items[i].style.fontWeight="bold";
+}
 
 
 
