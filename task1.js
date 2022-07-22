@@ -21,7 +21,9 @@ console.log(document.links);
 
 //console.log(document.images);
 
+
 // GETELEMENTBYID //
+
 // console.log(document.getElementById('header-title'));
 var headerTitle=document.getElementById('header-title');
 var header=document.getElementById('main-header');
@@ -36,11 +38,31 @@ var header=document.getElementById('main-header');
 // headerTitle.innerHTML='<h3>hello</h3>';
 
 // style changes
-headerTitle.style.borderBottom='solid 3px #000';
-header.style.borderBottom='solid 3px #000';
 
-headerTitle.style.color='green';
-header.style.color='green';
+// headerTitle.style.borderBottom='solid 3px #000';
+// header.style.borderBottom='solid 3px #000';
+
+//header.style.color='green';
+
+//headerTitle.style.color='green';
+
+// make add item bold and change it's color to green
+var div=document.getElementById('main');
+console.log(div);
+div.style.color="green";
+div.style="fontWeight:500";
+
+var additem=document.querySelector(".title");
+console.log(additem);
+additem.style.color="green";
+additem.style.fontWeight="900";
+
+// GET ELEMENTS BY CLASS NAME //
+
+
+
+
+
 
 
 

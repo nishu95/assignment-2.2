@@ -1,0 +1,7 @@
+Simple steps are: 
+1. git init
+2. click on the stage changes in source control
+3. git commit -m " task summary"
+4. git remote add origin "URL "
+5. git branch -M main
+6. got push -u origin main
