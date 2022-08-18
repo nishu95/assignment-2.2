@@ -33,6 +33,8 @@ function addlocal(e){
 
     localStorage.setItem(object.objmail,JSON.stringify(object));
     showNewUserOnTheScreen(object);
+
+    // window.location.reload();         // this is to refresh the page (we r using this considering we want to show unique name with emails)
     
 
 }
@@ -42,19 +44,62 @@ function showNewUserOnTheScreen(obj){
     //console.log(my_objdesearialized.objname);
     //console.log(my_objdesearialized.objmail);
 
+    if(localStorage.getItem(obj.objmail)!==null){   // if the unique email exist in the UI list
+        removeUserFromScreen(obj.objmail);
+    }
+
     var li=document.createElement('li');
     li.className='tag';
-    
+    li.id=obj.objmail;
 
-    var user=document.createElement('h2');
-    user.textContent=obj.objname+' '+obj.objmail;
+    var text=document.createTextNode(obj.objname+' '+obj.objmail);
+    li.innerText=obj.objname+' '+obj.objmail;
 
-    li.appendChild(user);
+    var deletebtn=document.createElement('button');
+    deletebtn.className='deletebtn';
+    deletebtn.style.color='white';
+    deletebtn.innerText='DELETE';
+    deletebtn.id=obj.objmail;
+    deletebtn.style.backgroundColor='blue';
+
+    deletebtn.addEventListener('click',()=>{
+        localStorage.removeItem(obj.objmail);
+        li.remove();
+    });
+
+    var editbtn=document.createElement('button');
+    editbtn.className='editbtn';
+    editbtn.style.color='white';
+    editbtn.innerText='EDIT';
+    editbtn.id=obj.objmail;
+    editbtn.style.backgroundColor='orange';
+
+    editbtn.addEventListener('click',()=>{
+        console.log(obj);
+        document.getElementById('name').value=obj.objname;
+        document.getElementById('email').value=obj.objmail;
+        li.remove();
+    });
+   
+    li.appendChild(deletebtn);
+    li.appendChild(editbtn);
+    console.log(li);
+
+
     userList.appendChild(li);
+
+    
 
 }
 
-
+// this below function is for ux to be updated in case same unique email is used for diffrent name, so what we do is remove that li element and add the new one
+function removeUserFromScreen(email){
+    var parentNode=document.getElementById('list');
+    var childNodeToBeDeleted=document.getElementById(email);
+    if(childNodeToBeDeleted){
+        parentNode.removeChild(childNodeToBeDeleted);
+    }
+}
 
 
 document.addEventListener('DOMContentLoaded',refresh);
@@ -75,6 +120,14 @@ function refresh(e){
 }
 
 
+
+
+/*rid.addEventListener('click',deletion);
+function deletion(e){
+    e.preventDefault();
+    var goal=e.target;
+    console.log(e.target);
+}*/
 
 
 
