@@ -80,7 +80,7 @@ function showNewUserOnTheScreen(obj){
         document.getElementById('email').value=obj.objmail;
         li.remove();
     });
-   
+    console.log('hello');
     li.appendChild(deletebtn);
     li.appendChild(editbtn);
     console.log(li);
